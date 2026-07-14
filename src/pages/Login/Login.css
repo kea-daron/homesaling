@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* =====================================================
+   Login Page — Split layout
+   Left: hero image | Right: form panel
+===================================================== */
+
+/* ── Full-viewport split container ── */
+.login-page {
+    font-family: 'Inter', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+/* =====================================================
+   Left panel — Hero image
+===================================================== */
+.login-hero {
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+/* Dark gradient overlay for legible text */
+.login-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(10, 20, 50, 0.28) 0%,
+            rgba(10, 20, 50, 0.55) 100%);
+}
+
+/* Welcome text */
+.login-hero-text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+    width: 80%;
+}
+
+.login-hero-welcome {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.login-hero-brand {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 400;
+    line-height: 1.3;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* =====================================================
+   Right panel — Form
+===================================================== */
+.login-panel {
+    background: #f2f4f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 40px;
+    min-height: 100vh;
+}
+
+.login-form-wrap {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ── Logo ── */
+.login-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+/* Logo image */
+.login-logo-img {
+    width: 66px;
+    height: 66px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    flex-shrink: 0;
+}
+
+.login-logo-name {
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #1B2D6B;
+    letter-spacing: -0.01em;
+}
+
+/* ── Heading ── */
+.login-heading {
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+}
+
+/* ── Form ── */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Field group */
+.login-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Label row (for password with show/hide) */
+.login-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #3a3a4a;
+}
+
+/* Show/Hide password toggle */
+.login-toggle-pw {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #6b7a99;
+    padding: 0;
+    transition: color 0.18s ease;
+}
+
+.login-toggle-pw:hover {
+    color: #1B2D6B;
+}
+
+.login-toggle-pw svg {
+    width: 15px;
+    height: 15px;
+}
+
+/* Input */
+.login-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 14px;
+    border: 1.5px solid #dce2f0;
+    border-radius: 8px;
+    background: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #1a1a2e;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-input:focus {
+    border-color: #1B2D6B;
+    box-shadow: 0 0 0 3px rgba(27, 45, 107, 0.1);
+}
+
+/* Forgot password */
+.login-forgot-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -6px;
+}
+
+.login-forgot {
+    font-size: 0.8rem;
+    color: #1a1a2e;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.18s ease;
+}
+
+.login-forgot:hover {
+    color: #1B2D6B;
+}
+
+/* Submit button */
+.login-submit-btn {
+    width: 100%;
+    padding: 13px;
+    background: #b0b8cc;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+    transition: background 0.22s ease, transform 0.15s ease, box-shadow 0.22s ease;
+    margin-top: 4px;
+}
+
+.login-submit-btn:hover {
+    background: #1B2D6B;
+    box-shadow: 0 4px 18px rgba(27, 45, 107, 0.28);
+    transform: translateY(-1px);
+}
+
+.login-submit-btn:active {
+    transform: translateY(0);
+}
+
+/* ── Sign up prompt ── */
+.login-signup-prompt {
+    text-align: center;
+    font-size: 0.82rem;
+    color: #6b7a99;
+    margin-top: 16px;
+}
+
+.login-signup-link {
+    color: #1a1a2e;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1.5px solid #1a1a2e;
+    padding-bottom: 1px;
+    transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.login-signup-link:hover {
+    color: #1B2D6B;
+    border-color: #1B2D6B;
+}
+
+/* ── OR Divider ── */
+.login-or-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 20px 0 16px;
+}
+
+.login-or-line {
+    flex: 1;
+    height: 1px;
+    background: #dce2f0;
+}
+
+.login-or-text {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #9aa3bb;
+    letter-spacing: 0.06em;
+    flex-shrink: 0;
+}
+
+/* ── Social login buttons ── */
+.login-socials {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.login-social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 20px;
+    background: #ffffff;
+    border: 1.5px solid #dce2f0;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #1a1a2e;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.login-social-btn svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.login-social-btn:hover {
+    border-color: #b0b8cc;
+    box-shadow: 0 3px 14px rgba(27, 45, 107, 0.1);
+    transform: translateY(-1px);
+}
+
+.login-social-btn:active {
+    transform: translateY(0);
+}
+
+/* =====================================================
+   Responsive
+===================================================== */
+@media (max-width: 860px) {
+    .login-page {
+        grid-template-columns: 1fr;
+    }
+
+    .login-hero {
+        min-height: 260px;
+    }
+
+    .login-hero-text {
+        top: 50%;
+    }
+
+    .login-panel {
+        padding: 40px 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-panel {
+        padding: 32px 20px;
+    }
+
+    .login-form-wrap {
+        max-width: 100%;
+    }
+}

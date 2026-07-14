@@ -346,13 +346,47 @@
     gap: 44px;
 }
 
-/* Heading */
+/* ── Scroll-entry animation base states ── */
+/* Heading starts hidden — slides in from left */
 .locations-heading {
     font-size: clamp(1.4rem, 2.5vw, 1.75rem);
     font-weight: 700;
     color: #1B2D6B;
     text-align: center;
     letter-spacing: -0.01em;
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Cards start hidden — also includes all layout/base styles */
+.location-card {
+    position: relative;
+    display: block;
+    border-radius: 18px;
+    overflow: hidden;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 6px 28px rgba(27, 45, 107, 0.12);
+    /* scroll-entry animation base — slides in from left */
+    opacity: 0;
+    transform: translateX(-60px);
+    transition:
+        opacity 0.55s ease,
+        transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        box-shadow 0.3s ease;
+    transition-delay: calc(var(--i, 0) * 0.13s);
+}
+
+/* When the section becomes visible, reveal everything */
+.locations--visible .locations-heading {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.locations--visible .location-card {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 /* 4-column grid */
@@ -364,16 +398,27 @@
     align-items: end;
 }
 
-/* Card base */
-.location-card {
-    position: relative;
-    display: block;
+/* Shimmer light-sweep on hover */
+.location-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.22) 50%,
+        transparent 60%
+    );
+    background-size: 200% 100%;
+    background-position: -100% 0;
+    transition: background-position 0.55s ease;
+    pointer-events: none;
+    z-index: 3;
     border-radius: 18px;
-    overflow: hidden;
-    text-decoration: none;
-    cursor: pointer;
-    box-shadow: 0 6px 28px rgba(27, 45, 107, 0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-card:hover::after {
+    background-position: 200% 0;
 }
 
 /* Alternating heights to match the reference stagger */
@@ -385,9 +430,10 @@
     height: 380px;
 }
 
-.location-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(27, 45, 107, 0.20);
+/* Hover lift — override the opacity/transform set in the animation base */
+.locations--visible .location-card:hover {
+    transform: translateX(0) translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 48px rgba(27, 45, 107, 0.22);
 }
 
 /* Photo */
@@ -396,11 +442,11 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.45s ease;
+    transition: transform 0.5s ease;
 }
 
 .location-card:hover .location-card-img {
-    transform: scale(1.06);
+    transform: scale(1.07);
 }
 
 /* Gradient overlay — darker at top for legible text */
@@ -447,6 +493,17 @@
     font-weight: 400;
     color: rgba(255, 255, 255, 0.82);
     letter-spacing: 0.04em;
+    /* Subtle breathing pulse once visible */
+    animation: none;
+}
+
+.locations--visible .location-card-count {
+    animation: listingPulse 2.8s ease-in-out calc(var(--i, 0) * 0.12s + 0.7s) infinite;
+}
+
+@keyframes listingPulse {
+    0%, 100% { opacity: 0.82; }
+    50%       { opacity: 1;    }
 }
 
 /* ── Responsive ── */

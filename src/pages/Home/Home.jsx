@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
 import heroImg from '../../assets/2.jpg';
 
@@ -262,6 +263,24 @@ export default function Home() {
     const handlePrev = () => setSlideIndex((i) => Math.max(0, i - 1));
     const handleNext = () => setSlideIndex((i) => Math.min(maxIndex, i + 1));
 
+    // Locations section scroll animation
+    const locationsRef = useRef(null);
+    useEffect(() => {
+        const el = locationsRef.current;
+        if (!el) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    el.classList.add('locations--visible');
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.12 }
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
+
     const handleSearch = (e) => {
         e.preventDefault();
     };
@@ -338,9 +357,9 @@ export default function Home() {
             </section>
 
             {/* ── Locations Section ── */}
-            <section className="locations" aria-label="Available locations">
+            <section className="locations" aria-label="Available locations" ref={locationsRef}>
                 <div className="locations-inner">
-                    <h2 className="locations-heading">We are available in many location</h2>
+                    <h2 className="locations-heading">Popurlar Locations</h2>
 
                     <div className="locations-grid">
                         {locations.map(({ id, name, img, listings }, idx) => (
@@ -348,6 +367,7 @@ export default function Home() {
                                 key={id}
                                 href="#"
                                 className={`location-card location-card--${idx % 2 === 0 ? 'tall' : 'short'}`}
+                                style={{ '--i': idx }}
                                 aria-label={`Explore properties in ${name}`}
                             >
                                 <img
@@ -399,7 +419,7 @@ export default function Home() {
                             >
                                 <ArrowRightIcon />
                             </button>
-                            <a href="#" className="feat-show-all" id="feat-show-all-btn">Show all offers</a>
+                            <Link to="/offers" className="feat-show-all" id="feat-show-all-btn">Show all offers</Link>
                         </div>
                     </div>
 
@@ -464,7 +484,7 @@ export default function Home() {
                             >
                                 <ArrowRightIcon />
                             </button>
-                            <a href="#" className="feat-show-all" id="feat-show-all-btn">Show all offers</a>
+                            <Link to="/borey-offers" className="feat-show-all" id="feat-borey-show-all-btn">Show all offers</Link>
                         </div>
                     </div>
 
@@ -529,7 +549,7 @@ export default function Home() {
                             >
                                 <ArrowRightIcon />
                             </button>
-                            <a href="#" className="feat-show-all" id="feat-show-all-btn">Show all offers</a>
+                            <Link to="/sale-offers" className="feat-show-all" id="feat-sale-show-all-btn">Show all offers</Link>
                         </div>
                     </div>
 

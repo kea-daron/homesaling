@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 import logo from '../../assets/1.jpg';
 
@@ -46,9 +47,9 @@ export default function Header() {
 
         {/* CTA Buttons */}
         <div className="header-cta">
-          <a href="#login" className="btn btn-outline" id="header-login-btn">
+          <Link to="/login" className="btn btn-outline" id="header-login-btn">
             Login
-          </a>
+          </Link>
           <a href="#register" className="btn btn-solid" id="header-register-btn">
             Register
           </a>
@@ -84,7 +85,7 @@ export default function Header() {
             ))}
           </ul>
           <div className="header-mobile-cta">
-            <a href="#login" className="btn btn-outline" onClick={() => setMenuOpen(false)}>Login</a>
+            <Link to="/login" className="btn btn-outline" onClick={() => setMenuOpen(false)}>Login</Link>
             <a href="#register" className="btn btn-solid" onClick={() => setMenuOpen(false)}>Register</a>
           </div>
         </nav>

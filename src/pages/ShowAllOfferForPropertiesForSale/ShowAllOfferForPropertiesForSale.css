@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ===================================================
+   ShowAllOfferForPropertiesForSale Page
+   Follows the same design system as ShowAllOfferForApartment
+=================================================== */
+
+.sao-page {
+    font-family: 'Inter', sans-serif;
+    background: #f5f7fb;
+    min-height: 100vh;
+}
+
+/* ── Search Section ── */
+.sao-search-section {
+    background: #ffffff;
+    border-bottom: 1px solid #e8ecf4;
+    padding: 36px 0 32px;
+}
+
+.sao-search-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sao-search-heading {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #1B2D6B;
+    letter-spacing: -0.02em;
+}
+
+/* Search bar pill */
+.sao-search-bar {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1.5px solid #dce2f0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 16px rgba(27, 45, 107, 0.08);
+    transition: border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.sao-search-bar:focus-within {
+    border-color: #1B2D6B;
+    box-shadow: 0 4px 24px rgba(27, 45, 107, 0.13);
+}
+
+/* Field */
+.sao-field {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    position: relative;
+}
+
+.sao-field--location {
+    flex: 2;
+    gap: 8px;
+}
+
+.sao-field--select {
+    flex: 1;
+    padding-right: 36px;
+}
+
+/* Location icon */
+.sao-field-icon {
+    display: flex;
+    align-items: center;
+    color: #9aa3bb;
+    flex-shrink: 0;
+}
+
+.sao-field-icon svg {
+    width: 17px;
+    height: 17px;
+}
+
+/* Text input */
+.sao-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: #1B2D6B;
+    background: transparent;
+    padding: 14px 0;
+    min-width: 0;
+}
+
+.sao-input::placeholder {
+    color: #b0bacf;
+}
+
+/* Divider */
+.sao-divider {
+    width: 1px;
+    height: 28px;
+    background: #e0e6f0;
+    flex-shrink: 0;
+}
+
+/* Select */
+.sao-select {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: #4a5a80;
+    background: transparent;
+    cursor: pointer;
+    padding: 14px 0;
+    width: 100%;
+}
+
+.sao-chevron {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #9aa3bb;
+    display: flex;
+    align-items: center;
+}
+
+.sao-chevron svg {
+    width: 15px;
+    height: 15px;
+}
+
+/* Search button */
+.sao-search-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: #1B2D6B;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.22s ease, transform 0.15s ease;
+    letter-spacing: 0.01em;
+}
+
+.sao-search-btn svg {
+    width: 17px;
+    height: 17px;
+}
+
+.sao-search-btn:hover {
+    background: #14246a;
+    transform: scale(1.02);
+}
+
+.sao-search-btn:active {
+    transform: scale(0.99);
+}
+
+/* ── Results Section ── */
+.sao-results {
+    padding: 48px 0 72px;
+}
+
+.sao-results-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.sao-results-count {
+    font-size: 0.9rem;
+    color: #6b7a99;
+}
+
+.sao-results-count strong {
+    color: #1B2D6B;
+    font-weight: 700;
+}
+
+/* 3-column grid */
+.sao-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Property card */
+.sao-card {
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(27, 45, 107, 0.08);
+    transition: box-shadow 0.28s ease, transform 0.28s ease;
+    cursor: pointer;
+}
+
+.sao-card:hover {
+    box-shadow: 0 14px 40px rgba(27, 45, 107, 0.15);
+    transform: translateY(-5px);
+}
+
+/* Card image */
+.sao-card-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.sao-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease;
+}
+
+.sao-card:hover .sao-card-img {
+    transform: scale(1.06);
+}
+
+/* For Sale / For Rent tag */
+.sao-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.sao-tag--sale {
+    background: #1B2D6B;
+    color: #ffffff;
+}
+
+.sao-tag--rent {
+    background: #1a9ad6;
+    color: #ffffff;
+}
+
+/* Card body */
+.sao-card-body {
+    padding: 18px 18px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sao-card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1B2D6B;
+    line-height: 1.45;
+}
+
+.sao-card-price {
+    font-size: 0.875rem;
+    color: #4a5a80;
+}
+
+.sao-card-price strong {
+    color: #1B2D6B;
+    font-weight: 700;
+}
+
+/* Specs */
+.sao-card-specs {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.sao-spec {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8rem;
+    color: #6b7a99;
+}
+
+.sao-spec svg {
+    width: 14px;
+    height: 14px;
+    color: #8a99bb;
+    flex-shrink: 0;
+}
+
+/* Location */
+.sao-card-location {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    color: #8a99bb;
+    margin-top: 2px;
+}
+
+.sao-card-location svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+}
+
+/* Empty state */
+.sao-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #8a99bb;
+    font-size: 0.95rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+
+    .sao-search-inner,
+    .sao-results-inner {
+        padding: 0 32px;
+    }
+
+    .sao-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .sao-search-section {
+        padding: 28px 0 24px;
+    }
+
+    .sao-search-bar {
+        flex-direction: column;
+        align-items: stretch;
+        overflow: visible;
+        border: none;
+        background: transparent;
+        box-shadow: none;
+        gap: 10px;
+    }
+
+    .sao-field {
+        background: #fff;
+        border: 1.5px solid #dce2f0;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(27, 45, 107, 0.06);
+    }
+
+    .sao-field--location {
+        flex: unset;
+    }
+
+    .sao-field--select {
+        flex: unset;
+        padding-right: 36px;
+    }
+
+    .sao-divider {
+        display: none;
+    }
+
+    .sao-search-btn {
+        border-radius: 8px;
+        justify-content: center;
+        padding: 13px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .sao-search-inner,
+    .sao-results-inner {
+        padding: 0 20px;
+    }
+
+    .sao-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sao-search-heading {
+        font-size: 1.3rem;
+    }
+}

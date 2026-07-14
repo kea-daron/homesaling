@@ -143,7 +143,7 @@ export default function Login() {
                     {/* Sign up prompt */}
                     <p className="login-signup-prompt">
                         Don't have an account?{' '}
-                        <Link to="/signup" className="login-signup-link" id="login-signup-link">Sign up</Link>
+                        <Link to="/register" className="login-signup-link" id="login-signup-link">Sign up</Link>
                     </p>
 
                     {/* OR divider */}

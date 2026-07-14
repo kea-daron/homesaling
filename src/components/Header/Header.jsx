@@ -50,9 +50,9 @@ export default function Header() {
           <Link to="/login" className="btn btn-outline" id="header-login-btn">
             Login
           </Link>
-          <a href="#register" className="btn btn-solid" id="header-register-btn">
+          <Link to="/register" className="btn btn-solid" id="header-register-btn">
             Register
-          </a>
+          </Link>
         </div>
 
         {/* Hamburger (mobile) */}
@@ -86,7 +86,7 @@ export default function Header() {
           </ul>
           <div className="header-mobile-cta">
             <Link to="/login" className="btn btn-outline" onClick={() => setMenuOpen(false)}>Login</Link>
-            <a href="#register" className="btn btn-solid" onClick={() => setMenuOpen(false)}>Register</a>
+            <Link to="/register" className="btn btn-solid" onClick={() => setMenuOpen(false)}>Register</Link>
           </div>
         </nav>
       </div>

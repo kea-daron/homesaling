@@ -6,13 +6,15 @@ import ShowAllOffer from './pages/ShowAllOfferForApartment/ShowAllOfferForApartm
 import ShowAllOfferForBorey from './pages/ShowAllOfferForBorey/ShowAllOfferForBorey';
 import ShowAllOfferForPropertiesForSale from './pages/ShowAllOfferForPropertiesForSale/ShowAllOfferForPropertiesForSale';
 import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Login — full page, no header/footer */}
+        {/* Login & Register — full page, no header/footer */}
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         {/* Main layout — with Header & Footer */}
         <Route path="/*" element={

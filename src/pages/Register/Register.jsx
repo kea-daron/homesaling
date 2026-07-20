@@ -60,8 +60,10 @@ export default function Register() {
 
                     {/* Logo */}
                     <div className="reg-logo">
-                        <img src={logoImg} alt="Real Estate logo" className="reg-logo-img" />
-                        <span className="reg-logo-name">Real Estate</span>
+                        <Link to="/" className="reg-logo-link">
+                            <img src={logoImg} alt="Real Estate logo" className="reg-logo-img" />
+                            <span className="reg-logo-name">Real Estate</span>
+                        </Link>
                     </div>
 
                     <h1 className="reg-heading">Create an account</h1>

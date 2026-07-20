@@ -4,8 +4,8 @@ import './Header.css';
 import logo from '../../assets/1.jpg';
 
 const navLinks = [
-  { label: 'Buy', href: '#' },
-  { label: 'Rent', href: '#' },
+  { label: 'Buy', href: '/buy' },
+  { label: 'Rent', href: '/rent' },
   { label: 'Condo', href: '#' },
   { label: 'Boreys', href: '#' },
   { label: 'Land', href: '#' },
@@ -16,30 +16,41 @@ const navLinks = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('Buy');
+  const [activeLink, setActiveLink] = useState('');
 
   return (
     <header className="header">
       <div className="header-inner">
         {/* Logo */}
-        <a href="#" className="header-logo" aria-label="Real Estate Home">
+        <Link to="/" className="header-logo" aria-label="Real Estate Home" onClick={() => setActiveLink('')}>
           <img src={logo} alt="Real Estate logo" className="header-logo-img" />
           <span className="header-logo-text">Real Estate</span>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="header-nav" aria-label="Main navigation">
           <ul className="header-nav-list">
             {navLinks.map(({ label, href }) => (
               <li key={label}>
-                <a
-                  href={href}
-                  className={`header-nav-link${activeLink === label ? ' active' : ''}`}
-                  onClick={() => setActiveLink(label)}
-                >
-                  {label}
-                  <span className="nav-link-underline" />
-                </a>
+                {href.startsWith('/') ? (
+                  <Link
+                    to={href}
+                    className={`header-nav-link${activeLink === label ? ' active' : ''}`}
+                    onClick={() => setActiveLink(label)}
+                  >
+                    {label}
+                    <span className="nav-link-underline" />
+                  </Link>
+                ) : (
+                  <a
+                    href={href}
+                    className={`header-nav-link${activeLink === label ? ' active' : ''}`}
+                    onClick={() => setActiveLink(label)}
+                  >
+                    {label}
+                    <span className="nav-link-underline" />
+                  </a>
+                )}
               </li>
             ))}
           </ul>

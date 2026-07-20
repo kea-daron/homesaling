@@ -81,10 +81,14 @@
 
 /* ── Logo ── */
 .login-logo {
+    margin-bottom: 28px;
+}
+
+.login-logo-link {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 28px;
+    text-decoration: none;
 }
 
 /* Logo image */

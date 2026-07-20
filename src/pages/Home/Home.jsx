@@ -11,25 +11,64 @@ const locations = [
         name: 'PHNOM PENH',
         img: 'https://a0.muscache.com/im/pictures/hosting/Hosting-1518343116185890394/original/5941e318-2979-428e-8b5b-1c5fa2f1ed88.jpeg',
         listings: 120,
+        path: '/phnom-penh',
     },
     {
         id: 2,
         name: 'CHAMKAMORN',
         img: 'https://www.phnompenhbesthotels.com/data/Photos/450x450w/17322/1732242/1732242558.JPEG',
         listings: 85,
+        path: '/chamkamorn',
     },
     {
         id: 3,
         name: 'BKKI',
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbDaRLVawS4DXvmx7x3dxg99cg1_qpmyrmfvQGloXaSQZ_BjrBIsmuoXgN&s=10',
         listings: 64,
+        path: '/bkk',
     },
     {
         id: 4,
         name: 'DOUN PENH',
         img: 'https://s1.rea.global/img/raw/realestate_kh/kh/67441dbb1930b4f9fe103e543426a6ce.jpg',
         listings: 47,
+        path: '/doun-penh',
     },
+    {
+        id: 5,
+        name: 'RUSSIAN MARKET',
+        img: 'https://vietnamalluretravel.com/wp-content/uploads/2024/09/rusisina-768x508.jpg',
+        listings: 32,
+        path: '/russian-market',
+    },
+    {
+        id: 6,
+        name: 'SIHANOUKVILLE',
+        img: 'https://www.guidingcambodia.com/wp-content/uploads/2023/11/Sihanoukville-City-View-413x473-1.jpg',
+        listings: 156,
+        path: '/sihanoukville',
+    },
+    {
+        id: 7,
+        name: 'KAMPOT',
+        img: 'https://en.travelsense.asia/wp-content/uploads/2023/05/campuchia-kampot.jpeg',
+        listings: 89,
+        path: '/kampot',
+    },
+    {
+        id: 8,
+        name: 'SIEM REAP',
+        img: 'https://afar.brightspotcdn.com/dims4/default/8af48b4/2147483647/strip/false/crop/3000x1997+0+0/resize/1486x989!/quality/90/?url=https%3A%2F%2Fk3-prod-afar-media.s3.us-west-2.amazonaws.com%2Fbrightspot%2F34%2F8c%2F0a3f548947909b5b8d79b935b03f%2Ftravelguides-siemreap-guitarphotographer-shutterstock.jpg',
+        listings: 201,
+        path: '/siem-reap',
+    },
+    {
+        id: 9,
+        name: 'BATTAMBONG',
+        img: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Aerial_view_of_Battambang_city.jpg',
+        listings: 45,
+        path: '/battambong',
+    }
 ];
 
 const apartments = [
@@ -265,6 +304,19 @@ export default function Home() {
 
     // Locations section scroll animation
     const locationsRef = useRef(null);
+    const [canScrollLeftLoc, setCanScrollLeftLoc] = useState(false);
+
+    const handleLocationsScroll = (e) => {
+        setCanScrollLeftLoc(e.target.scrollLeft > 0);
+    };
+
+    const scrollLocations = (direction) => {
+        const grid = document.getElementById('locations-grid');
+        if (grid) {
+            grid.scrollBy({ left: direction * 320, behavior: 'smooth' });
+        }
+    };
+
     useEffect(() => {
         const el = locationsRef.current;
         if (!el) return;
@@ -361,28 +413,50 @@ export default function Home() {
                 <div className="locations-inner">
                     <h2 className="locations-heading">Popurlar Locations</h2>
 
-                    <div className="locations-grid">
-                        {locations.map(({ id, name, img, listings }, idx) => (
-                            <a
-                                key={id}
-                                href="#"
-                                className={`location-card location-card--${idx % 2 === 0 ? 'tall' : 'short'}`}
-                                style={{ '--i': idx }}
-                                aria-label={`Explore properties in ${name}`}
+                    <div className="locations-wrapper">
+                        {canScrollLeftLoc && (
+                            <button
+                                className="feat-arrow feat-arrow--next scroll-locations-btn scroll-locations-btn-left"
+                                onClick={() => scrollLocations(-1)}
+                                aria-label="Scroll locations left"
                             >
-                                <img
-                                    src={img}
-                                    alt={name}
-                                    className="location-card-img"
-                                    loading="lazy"
-                                />
-                                <div className="location-card-overlay" />
-                                <div className="location-card-info">
-                                    <span className="location-card-name">{name}</span>
-                                    <span className="location-card-count">{listings} listings</span>
-                                </div>
-                            </a>
-                        ))}
+                                <ArrowLeftIcon />
+                            </button>
+                        )}
+                        <div className="locations-grid" id="locations-grid" onScroll={handleLocationsScroll}>
+                            {locations.map(({ id, name, img, listings, path }, idx) => {
+                                const CardWrapper = path ? Link : 'a';
+                                const linkProps = path ? { to: path } : { href: '#' };
+                                return (
+                                    <CardWrapper
+                                        key={id}
+                                        {...linkProps}
+                                        className={`location-card location-card--${idx % 2 === 0 ? 'tall' : 'short'}`}
+                                        style={{ '--i': idx }}
+                                        aria-label={`Explore properties in ${name}`}
+                                    >
+                                        <img
+                                            src={img}
+                                            alt={name}
+                                            className="location-card-img"
+                                            loading="lazy"
+                                        />
+                                        <div className="location-card-overlay" />
+                                        <div className="location-card-info">
+                                            <span className="location-card-name">{name}</span>
+                                            <span className="location-card-count">{listings} listings</span>
+                                        </div>
+                                    </CardWrapper>
+                                );
+                            })}
+                        </div>
+                        <button
+                            className="feat-arrow feat-arrow--next scroll-locations-btn scroll-locations-btn-right"
+                            onClick={() => scrollLocations(1)}
+                            aria-label="Scroll locations right"
+                        >
+                            <ArrowRightIcon />
+                        </button>
                     </div>
                 </div>
             </section>

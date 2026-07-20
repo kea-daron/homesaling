@@ -76,8 +76,10 @@ export default function Login() {
 
                     {/* Logo */}
                     <div className="login-logo">
-                        <img src={logoImg} alt="Real Estate logo" className="login-logo-img" />
-                        <span className="login-logo-name">Real Estate</span>
+                        <Link to="/" className="login-logo-link">
+                            <img src={logoImg} alt="Real Estate logo" className="login-logo-img" />
+                            <span className="login-logo-name">Real Estate</span>
+                        </Link>
                     </div>
 
                     <h1 className="login-heading">Log in</h1>

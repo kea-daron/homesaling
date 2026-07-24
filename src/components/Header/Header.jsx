@@ -6,9 +6,9 @@ import logo from '../../assets/1.jpg';
 const navLinks = [
   { label: 'Buy', href: '/buy' },
   { label: 'Rent', href: '/rent' },
-  { label: 'Condo', href: '#' },
-  { label: 'Boreys', href: '#' },
-  { label: 'Land', href: '#' },
+  { label: 'Condo', href: '/condo' },
+  { label: 'Boreys', href: '/borey' },
+  { label: 'Land', href: '/land' },
   { label: 'About us', href: '#' },
 ];
 

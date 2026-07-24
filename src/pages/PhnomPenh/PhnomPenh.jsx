@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './PhnomPenh.css';
 
 const ChevronDown = () => (
@@ -89,6 +89,7 @@ const InfoIcon = () => (
 )
 
 export default function PhnomPenh() {
+    const navigate = useNavigate();
     return (
         <div className="phnom-penh-page">
             {/* Top Filter Bar */}
@@ -105,21 +106,18 @@ export default function PhnomPenh() {
                         <div className="filter-box multi-line-box">
                             <div className="filter-text">
                                 <span className="label">Property Type</span>
-                                <span className="value">Residential</span>
                             </div>
                             <ChevronDown />
                         </div>
                         <div className="filter-box multi-line-box">
                             <div className="filter-text">
                                 <span className="label">Price</span>
-                                <span className="value">Any</span>
                             </div>
                             <ChevronDown />
                         </div>
                         <div className="filter-box multi-line-box">
                             <div className="filter-text">
                                 <span className="label">Bedrooms</span>
-                                <span className="value">Any</span>
                             </div>
                             <ChevronDown />
                         </div>
@@ -207,7 +205,7 @@ export default function PhnomPenh() {
 
                                     <div className="actions">
                                         <button className="tel-btn">Tel: +855 61 77 7090</button>
-                                        <button className="contact-btn">Contact</button>
+                                        <button className="contact-btn" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Contact</button>
                                     </div>
                                 </div>
                             </div>
@@ -257,7 +255,7 @@ export default function PhnomPenh() {
 
                                     <div className="actions">
                                         <button className="tel-btn">Tel: +855 61 77 7090</button>
-                                        <button className="contact-btn">Contact</button>
+                                        <button className="contact-btn" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Contact</button>
                                     </div>
                                 </div>
                             </div>
@@ -307,7 +305,7 @@ export default function PhnomPenh() {
 
                                     <div className="actions">
                                         <button className="tel-btn">Tel: +855 61 77 7090</button>
-                                        <button className="contact-btn">Contact</button>
+                                        <button className="contact-btn" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Contact</button>
                                     </div>
                                 </div>
                             </div>
@@ -357,7 +355,7 @@ export default function PhnomPenh() {
 
                                     <div className="actions">
                                         <button className="tel-btn">Tel: +855 61 77 7090</button>
-                                        <button className="contact-btn">Contact</button>
+                                        <button className="contact-btn" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Contact</button>
                                     </div>
                                 </div>
                             </div>
@@ -407,7 +405,7 @@ export default function PhnomPenh() {
 
                                     <div className="actions">
                                         <button className="tel-btn">Tel: +855 61 77 7090</button>
-                                        <button className="contact-btn">Contact</button>
+                                        <button className="contact-btn" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Contact</button>
                                     </div>
                                 </div>
                             </div>
@@ -457,7 +455,7 @@ export default function PhnomPenh() {
 
                                     <div className="actions">
                                         <button className="tel-btn">Tel: +855 61 77 7090</button>
-                                        <button className="contact-btn">Contact</button>
+                                        <button className="contact-btn" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Contact</button>
                                     </div>
                                 </div>
                             </div>
@@ -507,7 +505,7 @@ export default function PhnomPenh() {
 
                                     <div className="actions">
                                         <button className="tel-btn">Tel: +855 61 77 7090</button>
-                                        <button className="contact-btn">Contact</button>
+                                        <button className="contact-btn" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Contact</button>
                                     </div>
                                 </div>
                             </div>
@@ -557,7 +555,7 @@ export default function PhnomPenh() {
 
                                     <div className="actions">
                                         <button className="tel-btn">Tel: +855 61 77 7090</button>
-                                        <button className="contact-btn">Contact</button>
+                                        <button className="contact-btn" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Contact</button>
                                     </div>
                                 </div>
                             </div>
@@ -607,7 +605,7 @@ export default function PhnomPenh() {
 
                                     <div className="actions">
                                         <button className="tel-btn">Tel: +855 61 77 7090</button>
-                                        <button className="contact-btn">Contact</button>
+                                        <button className="contact-btn" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Contact</button>
                                     </div>
                                 </div>
                             </div>
@@ -657,7 +655,7 @@ export default function PhnomPenh() {
 
                                     <div className="actions">
                                         <button className="tel-btn">Tel: +855 61 77 7090</button>
-                                        <button className="contact-btn">Contact</button>
+                                        <button className="contact-btn" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Contact</button>
                                     </div>
                                 </div>
                             </div>
@@ -707,7 +705,7 @@ export default function PhnomPenh() {
 
                                     <div className="actions">
                                         <button className="tel-btn">Tel: +855 61 77 7090</button>
-                                        <button className="contact-btn">Contact</button>
+                                        <button className="contact-btn" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Contact</button>
                                     </div>
                                 </div>
                             </div>
@@ -757,7 +755,7 @@ export default function PhnomPenh() {
 
                                     <div className="actions">
                                         <button className="tel-btn">Tel: +855 61 77 7090</button>
-                                        <button className="contact-btn">Contact</button>
+                                        <button className="contact-btn" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Contact</button>
                                     </div>
                                 </div>
                             </div>
@@ -807,7 +805,7 @@ export default function PhnomPenh() {
 
                                     <div className="actions">
                                         <button className="tel-btn">Tel: +855 61 77 7090</button>
-                                        <button className="contact-btn">Contact</button>
+                                        <button className="contact-btn" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Contact</button>
                                     </div>
                                 </div>
                             </div>
@@ -857,7 +855,7 @@ export default function PhnomPenh() {
 
                                     <div className="actions">
                                         <button className="tel-btn">Tel: +855 61 77 7090</button>
-                                        <button className="contact-btn">Contact</button>
+                                        <button className="contact-btn" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Contact</button>
                                     </div>
                                 </div>
                             </div>
@@ -907,7 +905,7 @@ export default function PhnomPenh() {
 
                                     <div className="actions">
                                         <button className="tel-btn">Tel: +855 61 77 7090</button>
-                                        <button className="contact-btn">Contact</button>
+                                        <button className="contact-btn" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Contact</button>
                                     </div>
                                 </div>
                             </div>

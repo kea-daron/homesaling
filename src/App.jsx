@@ -20,6 +20,9 @@ import Battambong from './pages/Battambong/Battambong';
 import PropertyDetail from './pages/PropertyDetail/PropertyDetail';
 import Buy from './pages/Buy/Buy';
 import Rent from './pages/Rent/Rent';
+import Condo from './pages/Condo/Condo';
+import Borey from './pages/Borey/Borey';
+import Land from './pages/Land/Land';
 
 
 export default function App() {
@@ -51,6 +54,9 @@ export default function App() {
               <Route path="/battambong" element={<Battambong />} />
               <Route path="/buy" element={<Buy />} />
               <Route path="/rent" element={<Rent />} />
+              <Route path="/condo" element={<Condo />} />
+              <Route path="/borey" element={<Borey />} />
+              <Route path="/land" element={<Land />} />
               <Route path="/property/:id" element={<PropertyDetail />} />
             </Routes>
             <Footer />
